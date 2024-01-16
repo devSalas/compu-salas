@@ -28,4 +28,26 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
+
+
+// rutas de la aplicacion
+Route::get("/favorites", function () {
+
+    return view("favorites");
+})->name("favorites");
+
+Route::get("/details/{id}", function ($id) {
+
+    return view("details", compact("id"));
+})->name("details");
+
+Route::get("/cart", function () {
+
+    return view("cart");
+})->name("cart");
+
+Route::get("/payment", function () {
+
+    return view("payment");
+})->name("payment");
